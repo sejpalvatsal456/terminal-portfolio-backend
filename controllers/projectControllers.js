@@ -1,7 +1,7 @@
 import { Project } from "../db/model.js"
 
 export const getAllProjects = async(req, res) => {
-  const projects = await Project.find();
+  const projects = await Project.find().sort({ updatedAt: -1 });
   return res.status(200).json(projects);
 };
 
